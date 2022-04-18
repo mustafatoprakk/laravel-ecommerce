@@ -19,4 +19,5 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::post("/login",[UserController::class,"index"])->name("login");
-Route::get("/",[ProductController::class,"index"]);
+Route::get("/",[ProductController::class,"index"])->name("home-page");
+Route::get("/product-detail/{id}",[ProductController::class,"show"])->name("product-detail");

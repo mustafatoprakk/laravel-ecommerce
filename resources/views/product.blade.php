@@ -7,11 +7,13 @@
         <div class="carousel-inner">
             @foreach ($products as $product )
                 <div class="carousel-item {{ $product['id']==1 ? 'active' : '' }}">
-                  <img src="{{ $product->image }}" class="d-block w-100 slider-img" alt="...">
+                  <a href="{{ route('product-detail',$product->id) }}">
+                    <img src="{{ $product->image }}" class="d-block w-100 slider-img" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>{{ $product->name }}</h5>
                     <p>{{ $product->description }}</p>
                   </div>
+                  </a>
                 </div>
             @endforeach
         </div>
@@ -28,10 +30,12 @@
           <h3>Trending Products</h3>
           @foreach ($products as $product )
             <div class="trending-item">
-              <img src="{{ $product->image }}" class="trending-image" alt="...">
-              <div class="">
-                <h5>{{ $product->name }}</h5>
-              </div>
+              <a href="{{ route('product-detail',$product->id) }}">
+                <img src="{{ $product->image }}" class="trending-image" alt="...">
+                <div class="">
+                  <h5>{{ $product->name }}</h5>
+                </div>
+              </a>
             </div>
           @endforeach
       </div>
