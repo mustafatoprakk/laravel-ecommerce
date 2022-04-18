@@ -24,14 +24,14 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="{{ route('search') }}" class="d-flex">
+          <input name="search" id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <ul class="navbar-nav mb-2 ms-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link fs-5" href="#"><i class="bi bi-cart-dash-fill"></i><span class="ps-1">2</span></a>
-              </li>
+          <li class="nav-item">
+              <a class="nav-link fs-5" href="#"><i class="bi bi-cart-dash-fill"></i><span class="ps-1">2</span></a>
+          </li>
         </ul>
       </div>
     </div>

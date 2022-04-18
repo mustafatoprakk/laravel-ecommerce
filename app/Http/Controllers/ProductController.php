@@ -23,9 +23,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $datas = Product::where("name", "like", '%' . $request->input("search") . '%')
+            ->get();
+        return view("search-data", compact("datas"));
     }
 
     /**
