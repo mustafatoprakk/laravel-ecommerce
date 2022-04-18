@@ -24,6 +24,17 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <div class="trending-wrapper">
+          <h3>Trending Products</h3>
+          @foreach ($products as $product )
+            <div class="trending-item">
+              <img src="{{ $product->image }}" class="trending-image" alt="...">
+              <div class="">
+                <h5>{{ $product->name }}</h5>
+              </div>
+            </div>
+          @endforeach
+      </div>
 </div>
 
 
