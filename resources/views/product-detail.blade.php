@@ -18,7 +18,11 @@
                                 <h3 class="">{{ $product->price }}</h3>
                                 <h4 class="">{{ $product->description }}</h4>
                                 <h4 class="">{{ $product->category }}</h4>
-                                <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
+                                <form action="{{ route('add-to-cart') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
+                                </form>
                                 <button type="submit" class="btn btn-success mt-3">Buy Now</button>
                             </div>
                         </div>
