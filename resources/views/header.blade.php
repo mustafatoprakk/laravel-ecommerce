@@ -1,3 +1,10 @@
+@php
+use App\Http\Controllers\ProductController;
+
+$sumCartItem=ProductController::cartItem();
+@endphp
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -30,7 +37,7 @@
         </form>
         <ul class="navbar-nav mb-2 ms-2 mb-lg-0">
           <li class="nav-item">
-              <a class="nav-link fs-5" href="#"><i class="bi bi-cart-dash-fill"></i><span class="ps-1">2</span></a>
+              <a class="nav-link fs-5" href="#"><i class="bi bi-cart-dash-fill"></i><span class="ps-1">{{ $sumCartItem }}</span></a>
           </li>
         </ul>
       </div>
