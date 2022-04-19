@@ -73,6 +73,17 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    //order now
+    public function orderNow()
+    {
+        $userId = Session::get("user")["id"];
+        $total = Cart::where("carts.user_id", $userId)
+            ->join("products", "carts.product_id", "products.id")
+            ->sum("products.price");
+
+        return view("order", compact("total"));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

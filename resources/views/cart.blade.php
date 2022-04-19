@@ -6,8 +6,9 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <h4>Cart</h4>
+            <a href="{{ route('order-now') }}" class="btn btn-success float-end">Order Now</a>
             @foreach ($products as $product )
-            <div class="row mb-5">
+            <div class="row mb-5 mt-5">
                 <div class="col-md-8 offset-md-2 ">
                     <div class="border-bottom pb-3">
                         <div class="">

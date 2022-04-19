@@ -30,3 +30,4 @@ Route::get("/search",[ProductController::class,"create"])->name("search");
 Route::post("/add-to-cart",[ProductController::class,"addToCart"])->name("add-to-cart");
 Route::get("/cart",[ProductController::class,"cartList"])->name("cartList");
 Route::get("/remove-cart/{id}",[ProductController::class,"removeCart"])->name("remove-cart");
+Route::get("/order",[ProductController::class,"orderNow"])->name("order-now");
