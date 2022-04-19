@@ -5,8 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 offset-md-4" style="margin-top: 6%">
-            <form action="" method="post">
-                <div class="card shadow p-3 mb-5 bg-body rounded">
+            <form action="{{ route('order-place') }}" method="post">
+                @csrf
+                <div class="card shadow p-3 mb-3 bg-body rounded">
                     <div class="card-body">
                         <h4 class="card-title fw-bold text-center">Order Summary</h4>
                         <div class="row mt-4">
@@ -52,16 +53,16 @@
                 <div class="card shadow p-3 mb-5 bg-body rounded">
                     <div class="card-body">
                         <div class="mb-3">
-                            <textarea class="form-control" id="address" name="address" rows="3" placeholder="Address"></textarea>
+                            <textarea class="form-control" id="address" name="address" rows="3" placeholder="Address" required></textarea>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <input name="payment" value="cash" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
                               Online payment
                             </label>
                         </div>
                         <div class="form-check border-bottom pb-4">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <input name="payment" value="cash" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                             <label class="form-check-label" for="flexRadioDefault2">
                               Payment on Delivery
                             </label>
