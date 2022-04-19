@@ -23,12 +23,13 @@ Route::get('/logout', function () {
     return redirect('login');
 })->name("logout");
 
-Route::post("/login",[UserController::class,"index"])->name("login");
-Route::get("/",[ProductController::class,"index"])->name("home-page");
-Route::get("/product-detail/{id}",[ProductController::class,"show"])->name("product-detail");
-Route::get("/search",[ProductController::class,"create"])->name("search");
-Route::post("/add-to-cart",[ProductController::class,"addToCart"])->name("add-to-cart");
-Route::get("/cart",[ProductController::class,"cartList"])->name("cartList");
-Route::get("/remove-cart/{id}",[ProductController::class,"removeCart"])->name("remove-cart");
-Route::get("/order",[ProductController::class,"orderNow"])->name("order-now");
-Route::post("/order-place",[ProductController::class,"orderPlace"])->name("order-place");
+Route::post("/login", [UserController::class, "index"])->name("login");
+Route::get("/", [ProductController::class, "index"])->name("home-page");
+Route::get("/product-detail/{id}", [ProductController::class, "show"])->name("product-detail");
+Route::get("/search", [ProductController::class, "create"])->name("search");
+Route::post("/add-to-cart", [ProductController::class, "addToCart"])->name("add-to-cart");
+Route::get("/cart", [ProductController::class, "cartList"])->name("cartList");
+Route::get("/remove-cart/{id}", [ProductController::class, "removeCart"])->name("remove-cart");
+Route::get("/order", [ProductController::class, "orderNow"])->name("order-now");
+Route::post("/order-place", [ProductController::class, "orderPlace"])->name("order-place");
+Route::get("/order-list", [ProductController::class, "orderList"])->name("order-list");

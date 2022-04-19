@@ -105,6 +105,17 @@ class ProductController extends Controller
         return redirect("/");
     }
 
+    // order list
+    public function orderList()
+    {
+        $userId = Session::get("user")["id"];
+        $orders=  Order::where("orders.user_id", $userId)
+            ->join("products", "orders.product_id", "products.id")
+            ->get();
+
+        return view("order-list", compact("orders"));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
