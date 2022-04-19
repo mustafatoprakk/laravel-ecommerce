@@ -22,8 +22,10 @@ Route::get('/logout', function () {
     Session::forget("user");
     return redirect('login');
 })->name("logout");
+
 Route::post("/login",[UserController::class,"index"])->name("login");
 Route::get("/",[ProductController::class,"index"])->name("home-page");
 Route::get("/product-detail/{id}",[ProductController::class,"show"])->name("product-detail");
 Route::get("/search",[ProductController::class,"create"])->name("search");
 Route::post("/add-to-cart",[ProductController::class,"addToCart"])->name("add-to-cart");
+Route::get("/cartList",[ProductController::class,"cartList"])->name("cartList");

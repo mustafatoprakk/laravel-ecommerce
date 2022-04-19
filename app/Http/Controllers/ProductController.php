@@ -54,6 +54,18 @@ class ProductController extends Controller
         return Cart::where("user_id", $userId)->count();
     }
 
+    // cart list
+    public function cartList()
+    {
+        $userId = Session::get("user")["id"];
+        $products = Cart::where("carts.user_id", $userId)
+            ->join("products", "carts.product_id", "products.id")
+            ->select("products.*")
+            ->get();
+
+        return view("cart", compact("products"));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
