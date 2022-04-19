@@ -54,16 +54,23 @@ class ProductController extends Controller
         return Cart::where("user_id", $userId)->count();
     }
 
-    // cart list
+    // cart list                *********************************************************
     public function cartList()
     {
         $userId = Session::get("user")["id"];
         $products = Cart::where("carts.user_id", $userId)
             ->join("products", "carts.product_id", "products.id")
-            ->select("products.*")
+            ->select("products.*", "carts.id as cart_id")
             ->get();
 
         return view("cart", compact("products"));
+    }
+
+    //remove cart product
+    public function removeCart($id)
+    {
+        Cart::find($id)->delete();
+        return redirect()->back();
     }
 
     /**
