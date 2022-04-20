@@ -18,11 +18,27 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $user = User::where(["email" => $request->email])->first();
-        if (!$user || Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return "username or password does not mastch";
         } else {
             $request->session()->put("user", $user);
             return redirect("/");
+        }
+    }
+
+    // register
+    public function register(Request $request)
+    {
+        $user = new User();
+        if ($request->password == $request->confirmPassword) {
+            $user->password = Hash::make($request->password);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $request->session()->put("user", $user);
+            $user->save();
+            return redirect("/");
+        } else {
+            echo "<script>alert('Password does not match')</script>";
         }
     }
 

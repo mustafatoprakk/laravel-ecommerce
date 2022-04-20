@@ -18,12 +18,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/register', function () {
+    return view('register');
+})->name("register");
 Route::get('/logout', function () {
     Session::forget("user");
     return redirect('login');
 })->name("logout");
 
 Route::post("/login", [UserController::class, "index"])->name("login");
+Route::post("/register", [UserController::class, "register"])->name("register");
 Route::get("/", [ProductController::class, "index"])->name("home-page");
 Route::get("/product-detail/{id}", [ProductController::class, "show"])->name("product-detail");
 Route::get("/search", [ProductController::class, "create"])->name("search");

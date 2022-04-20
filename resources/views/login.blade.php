@@ -16,8 +16,7 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary">Login</button>
-                            <p class="fw-normal my-3 text-center">Not a member? <a href="" class="text-decoration-none">Sign up</a></p>
-                            
+                            <p class="fw-normal my-3 text-center">Not a member? <a href="{{ route('register') }}" class="text-decoration-none">Sign up</a></p>   
                         </div>
                     </form>
                 </div>

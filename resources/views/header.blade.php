@@ -20,9 +20,11 @@ if(Session::has('user')){
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ route('home-page') }}">Home</a>
           </li>
+          @if (Session::has("user"))
           <li class="nav-item">
             <a class="nav-link" href="{{ route('order-list') }}">Orders</a>
           </li>
+          @endif
           
         </ul>
         <form action="{{ route('search') }}" class="d-flex">
@@ -48,6 +50,9 @@ if(Session::has('user')){
           @else 
           <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">Register</a>
           </li>
           @endif
         </ul>
